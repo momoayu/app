@@ -1,0 +1,72 @@
+version: '3.9'
+
+services:
+
+  web-frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    container_name: web-frontend
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend:/code/frontend
+    command: npm run dev
+    depends_on:
+      - nginx
+    networks:
+      - webwork
+
+  web-backend:
+    build:
+        context: .
+        dockerfile: ./backend/Dockerfile
+    container_name: web-backend
+    command: uwsgi --ini /code/backend/django.ini
+    restart: always
+    tty: true
+    volumes:
+      - ./backend:/code/backend
+      - ./tmp:/var/config
+    expose:
+      - "8001"
+    depends_on:
+      - mysqldb
+    networks:
+      - webwork
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql:8
+    command:
+      --collation-server=utf8mb4_0900_bin
+      --transaction-isolation=READ-COMMITTED
+    restart: always 
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+      TZ: Asia/Tokyo 
+    ports:
+      - 53306:3306
+    networks:
+      - webwork
+  
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/uwsgi_params:/etc/nginx/uwsgi_params
+      - ./app/static:/static
+      - ./nginx/log:/var/log/nginx
+      - ./tmp:/var/config
+    depends_on:
+      - web-backend
+    networks:
+      - webwork
+
+networks:
+  webwork:
+    external: true

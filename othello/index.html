@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang: "ja">
+<head>
+    <meta charset="UTF-8">
+    <title>オセロ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>	
+	<div class="left">
+		<button class="offSkill onSkill"  id="s1" onclick="randomStone()" disabled>ランダムストーン</button>
+		<button class="offSkill onSkill"  id="s2" onclick="cornerOccupied()" disabled>四隅に石を置く</button>
+		<button class="offSkill onSkill"  id="s3" onclick="reverseStone()" disabled>逆転オセロ</button>
+	</div>
+	<div class="middle">
+		<table class="othelloTable" id="tb1">
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>	
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>
+			<tr>	
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><img src="黒.svg"></td>
+				<td><img src="白.svg"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>	
+			<tr>	
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><img src="白.svg"></td>
+				<td><img src="黒.svg"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>	
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>	
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>	
+			<tr>	
+				<td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+			</tr>	
+		</table>
+	</div>
+	<div class="right">
+		<table class="scoreTable">
+			<tr>
+				<td><span class="playerText" id="playerText1">player1(黒)</span></td>
+				<td><span class="numberText" id="numberText1">2</span></td>
+			</tr>
+			<tr>
+				<td><p class="playerText" id="playerText2">player2(白)</p></td>
+				<td><p class="numberText" id="numberText2">2</p></td>
+			</tr>
+		</table>
+		<span class="turnText" id= "turnText1">player1のターンです</span>
+		<span class="turnText" id= "turnText2"></span>
+		<button class="btn onBtn" id="pass" onclick="changePlayerAndText()">パスする</button>
+		<button class="btn" onclick="reset()">リセット</button>
+	</div>
+<script src="contents.js"></script>
+</body>
+</html>

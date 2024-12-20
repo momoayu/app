@@ -1,0 +1,153 @@
+body{
+  	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly; 	
+}
+
+body:after{
+	position: fixed;
+	top: 0; 
+	left: 0;
+	width: 100%; 
+	height: 100%;
+	content: "";
+	z-index: -1;
+	background: linear-gradient(to bottom, #003200 0%, #E5FED5 100%);
+}
+
+:root{
+	--tableAndSkill-color: green;
+	--turnText-color: white;
+	--button-textSize: 20px;
+}
+
+.onSkill{
+	display:block;
+	margin: 10px 10px 10px 10px;
+	width: 200px;
+	font-size: var(--button-textSize);
+	color: white;
+	background-color: var(--tableAndSkill-color);
+	transition: 1s;
+	animation-name:skillOn;
+    animation-duration:3s; 
+    animation-iteration-count: infinite;
+}
+
+@keyframes skillOn{
+	0%{
+ 		background: green;
+	}
+  	50%{
+    	background: black;
+  	}
+  	100%{
+ 		background: green;
+ 	} 
+}
+	
+.offSkill{
+	display:block;
+	margin: 10px 10px 10px 10px;
+	width: 200px;
+	font-size: var(--button-textSize);
+	color: white;
+	background-color: var(--tableAndSkill-color);
+	transition: 1s;
+	opacity: 0.3;
+	animation-name: none;
+}
+
+.middle table{
+	border-collapse: collapse;
+	width: 400px;
+	table-layout: fixed;
+	border: 5px black solid;
+	text-align: center;
+}
+
+img{
+	width: 30px;
+	height:30px;
+	text-align: center;    
+}
+
+.colorBlack{
+	background: black; 
+}
+
+.colorWhite{
+	background: white;
+}
+
+.right table{
+	border-collapse: collapse;
+	width: 200px;
+	color: white;
+	table-layout: fixed;
+	border: 5px black solid;
+	text-align: center;
+}
+
+#playerText1,#numberText1{
+	color: black;
+}
+
+.turnText{
+	font-size: 30px;
+	color: var(--turnText-color);
+	margin: 50px 50px 0px 0px;
+	display: block;
+}
+
+#turnText1{
+	animation-name:scrollText;
+    animation-duration:4s; 
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes scrollText{
+	0%{
+ 		opacity: 0;
+ 		transform: translateY(-30px);
+	}
+  	50%{
+    	opacity: 1;
+     	transform: translateY(0);
+  	}
+  	100%{
+ 		opacity:0;
+ 		transform: translateY(30px);
+ 	} 
+}
+
+.onBtn{
+	width: 100px;
+	font-size: var(--button-textSize);
+	color: white;
+	background-color: black;
+	animation-name:skillOn;
+    animation-duration:3s; 
+    animation-iteration-count: infinite;
+}
+
+.btn{
+	width: 100px;
+	font-size: var(--button-textSize);
+	color: white;
+	background-color: black;
+	animation:none;
+}
+
+td{
+	background: var(--tableAndSkill-color);
+	height: 50px;
+	border: 2px black solid;
+} 
+
+button:hover{
+	transform: scale(1.1,1.1);
+}
+

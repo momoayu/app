@@ -1,0 +1,17 @@
+asgiref
+Django
+djangorestframework
+djangorestframework-simplejwt
+mysqlclient
+numpy
+pandas
+PyJWT
+python-dateutil
+pytz
+six
+sqlparse
+timedelta
+tzdata
+environ
+django-environ
+uwsgi
